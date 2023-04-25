@@ -1,25 +1,25 @@
 public class Nodo {
 
-    private int valor;
+    private Vehiculo vehiculo;
     private Nodo arriba;
     private Nodo abajo;
     private Nodo derecha;
     private Nodo izquierda;
 
-    public Nodo (int valor){
-        this.valor=valor;
+    public Nodo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
         this.arriba = null;
         this.abajo = null;
         this.derecha = null;
         this.izquierda = null;
     }
 
-    public int getValor() {
-        return valor;
+    public Vehiculo getVehiculo() {
+        return vehiculo;
     }
 
-    public void setValor(int valor) {
-        this.valor = valor;
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
     }
 
     public Nodo getArriba() {
