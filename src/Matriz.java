@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package TareaProgramacion;
 
 public class Matriz {
 
@@ -10,9 +10,10 @@ public class Matriz {
     }
 
     private void inicializarMatriz() {
+        int letra = 100;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
-                matriz[i][j] = new Nodo(new Vehiculo("ABC123", "ROJO", "2020", "TOYOTA", "ERICK TZALAM"));
+                matriz[i][j] = new Nodo(new Vehiculo((letra++) + "", "ROJO", "2020", "TOYOTA", "MIRIAM SEBASTIAN"));
             }
         }
 
@@ -33,6 +34,25 @@ public class Matriz {
                 }
             }
         }
+
+    }
+
+    public void set(int i, int j, Vehiculo v) {
+        Nodo nodo = new Nodo(v);
+        matriz[i][j] = nodo;
+        if (i > 0) {
+            nodo.setArriba(matriz[i - 1][j]);
+        }
+        if (i < matriz.length - 1) {
+            nodo.setAbajo(matriz[i + 1][j]);
+        }
+        if (j > 0) {
+            nodo.setIzquierda(matriz[i][j - 1]);
+        }
+        if (j < matriz.length - 1) {
+            nodo.setDerecha(matriz[i][j + 1]);
+        }
+
     }
 
     public Nodo[][] getMatriz() {
@@ -43,18 +63,22 @@ public class Matriz {
         this.matriz = matriz;
     }
 
-    public void buscar(String dato) {
+    public String buscar(String dato) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                if (matriz[i][j].getVehiculo().getColor() == dato || matriz[i][j].getVehiculo().getLinea() == dato || matriz[i][j].getVehiculo().getModelo() == dato ||
-                        matriz[i][j].getVehiculo().getPlaca() == dato || matriz[i][j].getVehiculo().getPropietario() == dato) {
-                    matriz[i][j].getVehiculo().toString();
+                if (matriz[i][j] != null && (matriz[i][j].getVehiculo().getColor().equalsIgnoreCase(dato)
+                        || matriz[i][j].getVehiculo().getLinea().equalsIgnoreCase(dato)
+                        || matriz[i][j].getVehiculo().getModelo().equalsIgnoreCase(dato)
+                        || matriz[i][j].getVehiculo().getPlaca().equalsIgnoreCase(dato)
+                        || matriz[i][j].getVehiculo().getPropietario().equalsIgnoreCase(dato))) {
+                    return matriz[i][j].getVehiculo().toString();
                 }
             }
         }
+        return "No encontrado";
     }
 
-    public void eliminar(int fila, int columna){
+    public void eliminar(int fila, int columna) {
         if (fila < 0 || fila >= matriz.length || columna < 0 || columna >= matriz[0].length) {
             System.out.println("La posicion a eliminar es invalida");
             return;
@@ -80,7 +104,11 @@ public class Matriz {
     public void imprimirMatriz() {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                System.out.print(matriz[i][j].getVehiculo().toString() + " ");
+                if (matriz[i][j] != null) {
+                    System.out.print(matriz[i][j].getVehiculo().toString() + " ");
+                } else {
+                    System.out.print("    ");
+                }
             }
             System.out.println();
         }
