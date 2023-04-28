@@ -64,12 +64,13 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" +
-                "placa='" + placa + '\'' +
-                ", color='" + color + '\'' +
-                ", linea='" + linea + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", propietario='" + propietario + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(placa);
+//        sb.append(", color=").append(color);
+//        sb.append(", linea=").append(linea);
+//        sb.append(", modelo=").append(modelo);
+//        sb.append(", propietario=").append(propietario);
+//        sb.append('}');
+        return sb.toString();
     }
 }
