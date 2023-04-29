@@ -2,12 +2,18 @@ package TareaProgramacion;
 
 public class Matriz {
 
+    //matriz de nodos
+
     private Nodo[][] matriz;
+    
+    //constructor con parametros de fila y columna para establecer el tamaño
 
     public Matriz(int fila, int columna) {
         this.matriz = new Nodo[fila][columna];
         inicializarMatriz();
     }
+    
+    //Incializa la matriz, es decir establece la referencia de cada nodo con sus compañeros, establece el enlace arriba, abajo, derecha e izquierda de cada nodo de la matriz
 
     private void inicializarMatriz() {
         int letra = 100;
@@ -36,6 +42,8 @@ public class Matriz {
         }
 
     }
+    
+    //metodo para insertar un vehiculo en la matriz, se debe indicar la posicion en la que se quiere insertar y los datos del vehiculo
 
     public void set(int i, int j, Vehiculo v) {
         Nodo nodo = new Nodo(v);
@@ -54,6 +62,8 @@ public class Matriz {
         }
 
     }
+    
+    //metodos set and get de la matriz
 
     public Nodo[][] getMatriz() {
         return matriz;
@@ -63,6 +73,8 @@ public class Matriz {
         this.matriz = matriz;
     }
 
+    //metodo de busqueda que recibe como parametro una cadena y esta cadena se compara con los datos del vehiculo para encontar coincidencias y luego imprimir esos datos.
+    //Si no se encuentra el dato se imprime el mensaje "No encontrado"
     public String buscar(String dato) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
@@ -77,6 +89,10 @@ public class Matriz {
         }
         return "No encontrado";
     }
+    
+    //Metodo que elimina un nodo en la matriz, se debe enviar como parametro la posicino de la matriz que se quiere eliminar, se recorre la matriz para encontrar el dato.
+    //Se valida que la posicion ingresada sea valida.
+    //Si se encuentra la posicion se apuntan los enlaces a sus nuevas referencias y luego se coloca como null la posicion para eliminar los datos del nodo.
 
     public void eliminar(int fila, int columna) {
         if (fila < 0 || fila >= matriz.length || columna < 0 || columna >= matriz[0].length) {
@@ -100,6 +116,8 @@ public class Matriz {
 
         matriz[fila][columna] = null;
     }
+    
+    //Se recorre la matriz y se obtienen los datos de los vehiculos y se imprimen en consola.
 
     public void imprimirMatriz() {
         for (int i = 0; i < matriz.length; i++) {
