@@ -6,6 +6,8 @@ public class Nodo {
     private Nodo derecha;
     private Nodo izquierda;
 
+    //constructor
+    
     public Nodo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
         this.arriba = null;
@@ -13,6 +15,8 @@ public class Nodo {
         this.derecha = null;
         this.izquierda = null;
     }
+    
+    //metodos setters and getters
 
     public Vehiculo getVehiculo() {
         return vehiculo;
