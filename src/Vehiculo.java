@@ -6,6 +6,8 @@ public class Vehiculo {
     private String modelo;
     private String propietario;
 
+    //constructor sin parametros
+    
     public Vehiculo() {
         this.placa = placa;
         this.color = color;
@@ -13,7 +15,9 @@ public class Vehiculo {
         this.modelo = modelo;
         this.propietario = propietario;
     }
-
+    
+    //constructor con parametros
+    
     public Vehiculo(String placa, String color, String linea, String modelo, String propietario) {
         this.placa = placa;
         this.color = color;
@@ -21,7 +25,9 @@ public class Vehiculo {
         this.modelo = modelo;
         this.propietario = propietario;
     }
-
+    
+    //metodos setters and getters
+    
     public String getPlaca() {
         return placa;
     }
@@ -61,6 +67,8 @@ public class Vehiculo {
     public void setPropietario(String propietario) {
         this.propietario = propietario;
     }
+    
+    //metodo toString que imprime los datos del vehiculo
 
     @Override
     public String toString() {
